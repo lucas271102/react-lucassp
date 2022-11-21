@@ -1,6 +1,6 @@
 import React from 'react'
-import "./Button.css"; 
-const Button = (props) => {
+import "./ItemListContainer.css"; 
+const ItemListContainer = (props) => {
     const {label: elNombreDeMiBoton}= props;
   return (
     <button className="mi-boton">
@@ -10,4 +10,4 @@ const Button = (props) => {
   )
 }
 
-export default Button
+export default ItemListContainer

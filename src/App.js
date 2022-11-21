@@ -1,13 +1,13 @@
 
 import './App.css';
-import Button from './components/Button/Button';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
     <div className="App">
       <NavBar/>
-      <Button label="haz click"/>
+      <ItemListContainer label="Marcas"/>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 .navbar-list{
     display: flex;
-    background-color: black;
+    background-color: rgb(48, 48, 48);
     color: white;
     list-style: none;
     margin: 1rem 1rem 1rem 1rem ;
@@ -9,6 +9,10 @@
     cursor: pointer;
     align-items: center;
     font-family: 'Oxygen', sans-serif;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0
+    ;
 }
 .navbar-list header{
     font-family: 'Chivo', sans-serif;
