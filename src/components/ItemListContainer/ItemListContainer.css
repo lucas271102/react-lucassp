@@ -8,15 +8,6 @@
    
     
 }
-
-.cards img{
-    width: auto;
-    height: 400px;
-    display: flex;
-}
-.cards button{
-    display: flex;
-    width: 100px;
-    justify-content: center;
-
-}
+.card{display: flex;
+flex-direction: row;
+flex-wrap: wrap;}

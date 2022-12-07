@@ -1,41 +1,38 @@
 import React from 'react'
-import "./ItemListContainer.css"; 
 import mustang from '../assets/img/mustang.jpg';
 import audia3 from '../assets/img/audia3.jpg'
 import bmwm3 from '../assets/img/bmwm3.jpg';
 import civic from '../assets/img/civic.jpg';
-const ItemListContainer = (props) => {
-    const {label: elNombreDeMiBoton}= props;
+  
+
+
+const ItemListContainer = () => {
   return (
-    <div className="cards">
-<img src={mustang} alt=""/>
-<button className="mi-boton">
     
-  <button>+</button>  {elNombreDeMiBoton}  <button>-</button> 
-</button>
-<img src={audia3} alt=""/>
-<button className="mi-boton">
-    
-    {elNombreDeMiBoton}   
-</button>
-<img src={bmwm3} alt=""/>
-<button className="mi-boton">
-    
-    {elNombreDeMiBoton}   
-</button>
-<img src={civic} alt=""/>
-<button className="mi-boton">
-    
-    {elNombreDeMiBoton}   
-</button>
-<img src={mustang} alt=""/>
-<button className="mi-boton">
-    
-    {elNombreDeMiBoton}   
-</button>
-    </div>
-   
+    <><div className="card" style={{ width: '18rem', display:'flex'} }>
+      <img src={mustang} className="card-img-top" style={{ width: '18rem' }} alt="" />
+      <div className="card-body" style={{width: '18rem'}}>
+        <h5 className="card-title">Ford Mustang</h5>
+        <p className="card-text">Desde U$D 35.0000/ 600/Mes</p>
+        <a href="" className="btn btn-primary">Detalle</a>
+      </div>
+    </div><div className="card" style={{ width: '18rem', display:'flex', justifyContent:'center' }}>
+        <img src={audia3} className="card-img-top" style={{ width: '18rem'}} alt="" />
+        <div className="card-body">
+          <h5 className="card-title">Audi A3</h5>
+          <p className="card-text"></p>
+          <a href="" className="btn btn-primary">Detalle</a>
+        </div>
+      </div><div className="card" style={{ width: '18rem', display:'flex' }}>
+        <img src={civic} className="card-img-top" style={{ width: '18rem' }} alt="" />
+        <div className="card-body">
+          <h5 className="card-title">Honda Civic Type R</h5>
+          <p className="card-text"></p>
+          <a href="" className="btn btn-primary">Detalle</a>
+        </div>
+      </div></>
   )
 }
 
 export default ItemListContainer
+ 
