@@ -1,0 +1,6 @@
+.cardContainer{
+    width: 18rem;
+    height: 18rem;
+    display:flex ;
+    background-color: gold;
+}

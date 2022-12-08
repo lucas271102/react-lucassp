@@ -3,6 +3,7 @@ import mustang from '../assets/img/mustang.jpg';
 import audia3 from '../assets/img/audia3.jpg'
 import bmwm3 from '../assets/img/bmwm3.jpg';
 import civic from '../assets/img/civic.jpg';
+import { Link } from 'react-router-dom';
   
 
 
@@ -21,14 +22,14 @@ const ItemListContainer = () => {
         <div className="card-body">
           <h5 className="card-title">Audi A3</h5>
           <p className="card-text"></p>
-          <a href="" className="btn btn-primary">Detalle</a>
+          <a href="" className="btn btn-danger" style={{textDecoration:'none', color:'white'}}><Link to ="/detalle">Detalle</Link></a>
         </div>
       </div><div className="card" style={{ width: '18rem', display:'flex' }}>
         <img src={civic} className="card-img-top" style={{ width: '18rem' }} alt="" />
         <div className="card-body">
           <h5 className="card-title">Honda Civic Type R</h5>
           <p className="card-text"></p>
-          <a href="" className="btn btn-primary">Detalle</a>
+          <a href="" className="btn btn-danger">Detalle</a>
         </div>
       </div></>
   )

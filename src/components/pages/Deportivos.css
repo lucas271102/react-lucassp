@@ -1,0 +1,10 @@
+.header{
+    color: gold;
+    font-size: xx-large;
+    font-family: 'Oxygen', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    text-decoration: none;
+}

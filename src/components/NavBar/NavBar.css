@@ -18,4 +18,8 @@
     font-family: 'Chivo', sans-serif;
     color: gold;
     font-size: 60px;
+    text-decoration: none;
+}
+.header{
+    text-decoration: none;
 }

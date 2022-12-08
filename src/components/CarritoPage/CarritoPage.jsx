@@ -3,7 +3,7 @@ import NavBar from '../NavBar/NavBar'
 
 const CarritoPage = () => {
   return (
-    <NavBar/>
+    <div>Carrito</div>
   )
 }
 
