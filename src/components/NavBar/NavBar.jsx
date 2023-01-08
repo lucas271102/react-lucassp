@@ -1,22 +1,59 @@
-import React from 'react'
-import CartWidget from '../CartWidget/CartWidget';
-import "./NavBar.css";
-import { Link } from 'react-router-dom';
-const NavBar = () => {
-  return (
-    <div className="navbar-list">
-      
-      <header><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-gem" viewBox="0 0 16 16">
-  <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495 8 13.366l2.532-7.876-5.062.005zm-1.371-.999-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l5.113 6.817-2.192-6.82L1.5 5.5zm7.889 6.817 5.123-6.83-2.928.002-2.195 6.828z"/>
-</svg><Link to ="/home">Luxury Motors</Link></header>
-      
-        <li><Link to="/deportivos">DEPORTIVOS</Link>
-        </li>
-        <li><Link to="/superdeportivos">SUPERDEPORTIVOS</Link></li>
-        <li><CartWidget/></li>
-      </div>
-  
-  )
-}
+import React from "react";
+import { Link } from "react-router-dom";
 
-export default NavBar
+import { Images } from "../../utils/images.jsx";
+
+import "./Navbar.css";
+
+const Navbar = () => {
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <Link className="navbar-brand" to="/">
+        <img src={Images.Logo} alt="" />
+      </Link>
+      <div className="icon navbar-nav ">
+        <li>
+          <Link className="nav-link" to="/cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+</svg>
+          </Link>
+        </li>
+      </div>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item active">
+            <Link className="nav-link" to="/">
+              Inicio <span className="sr-only">(current)</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/">
+              Productos
+            </Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="/cart">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bag" viewBox="0 0 16 16">
+  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+</svg>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

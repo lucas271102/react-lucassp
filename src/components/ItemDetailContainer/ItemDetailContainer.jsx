@@ -1,25 +1,41 @@
-import React , {useState, useEffect}from 'react'
-import ItemDetail from '../ItemDetail/ItemDetail'
-import audia3 from "..//assets/img/audia3.jpg"
-const autos={
-    id:1, image:"https://autotest.com.ar/wp-content/uploads/2020/12/AUDI-A3-SPORTBACK-2021.jpg", title: "Audi A3", price:50000, desc:"Un gran motor alemán de 300 caballos de fuerza",
-    
-};
-export const ItemDetailContainer = () => {
-    const[ data, setData]=useState({})
-    useEffect(()=>{
-        const getData= new Promise (resolve=>{
-            setTimeout(()=>{
-                resolve(autos);
-            },
-            2000);
-        });
-        getData.then(res=> setData(res));
-    },[]
-    )
-  return (
-    <div><ItemDetail data={data}/></div>
-  )
-}
+import React, { useState, useEffect } from "react";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import Loading from "../Loading/Loading";
 
-export default ItemDetailContainer
+const ItemDetailContainer = ({ product, onAdd }) => {
+  const [article, setArticle] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const getProduct = () => {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        res(product);
+      }, 1000);
+    });
+  };
+
+  useEffect(() => {
+    let isSubscribed = true;
+    getProduct()
+      .then((data) => {
+        if (isSubscribed) {
+          setArticle(data);
+          setLoading(false);
+        }
+      })
+      .catch(() => console.log("rejected"));
+
+    return () => (isSubscribed = false);
+    //  eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return loading ? (
+    <Loading text="Cargando..." />
+  ) : (
+    <div>
+      <ItemDetail product={article} onAdd={onAdd} />
+    </div>
+  );
+};
+
+export default ItemDetailContainer;

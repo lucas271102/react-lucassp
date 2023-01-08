@@ -1,39 +1,39 @@
-import React from 'react'
-import mustang from '../assets/img/mustang.jpg';
-import audia3 from '../assets/img/audia3.jpg'
-import bmwm3 from '../assets/img/bmwm3.jpg';
-import civic from '../assets/img/civic.jpg';
-import { Link } from 'react-router-dom';
-  
+import React, {useEffect, useState} from 'react'
+import{useParams} from 'react-router-dom';
 
 
-const ItemListContainer = () => {
-  return (
+
+
+const cars =[
+  {id:1, image:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fautotest.com.ar%2Fnoticias%2Fvolkswagen-golf-gti-hatchback-deportivos%2F&psig=AOvVaw2g1Dqbdet9Hszt5kjfkogL&ust=1673114852386000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLjyndXEs_wCFQAAAAAdAAAAABAE ",
+category: "deportivos", title:"Volkswagen Golf"},
+{id: 2, image:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.caranddriver.com%2Fes%2Fcoches%2Fplaneta-motor%2Fa35225055%2Ftoyota-gr-yaris-litchfield%2F&psig=AOvVaw2jKPtxTTWMJAol02dwyaZx&ust=1673115043801000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLCawLDFs_wCFQAAAAAdAAAAABAE",
+category:"deportivos", title:"Toyota Gr Yaris"},
+{id:3, image:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.chevrolet.com.ar%2Fdeportivos-0km%2Fcamaro-coupe-auto-deportivo&psig=AOvVaw2DKnKOI1yGIwkD2iInUEEv&ust=1673115136620000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNj92dzFs_wCFQAAAAAdAAAAABAE",
+category:"superdeportivos", title:"Chevrolet Camaro"},
+{id:4, image:"https://www.carscoops.com/wp-content/uploads/2019/06/4481623b-ferrari-california-t-00.jpg", category:" superdeportivos ", title:" Ferrari California "}
+]
+export const ItemListContainer = ({texto}) => {
+  const [data, setData]=useState([]);
+  const {categoriaId}= useParams();
+  useEffect(()=>{
+    const getData = new Promise (resolve=>{
+      setTimeout(()=>{
+        resolve(cars);
+      }, 3000);
+
+    });
+    if (categoriaId){
+      getData.then(res=>res.filter(cars=> cars.category===categoriaId));
+    }else{
+      getData.then(res=> setData(res));
+    }
     
-    <><div className="card" style={{ width: '18rem', display:'flex'} }>
-      <img src={mustang} className="card-img-top" style={{ width: '18rem' }} alt="" />
-      <div className="card-body" style={{width: '18rem'}}>
-        <h5 className="card-title">Ford Mustang</h5>
-        <p className="card-text">Desde U$D 35.0000/ 600/Mes</p>
-        <a href="" className="btn btn-primary">Detalle</a>
-      </div>
-    </div><div className="card" style={{ width: '18rem', display:'flex', justifyContent:'center' }}>
-        <img src={audia3} className="card-img-top" style={{ width: '18rem'}} alt="" />
-        <div className="card-body">
-          <h5 className="card-title">Audi A3</h5>
-          <p className="card-text"></p>
-          <a href="" className="btn btn-danger" style={{textDecoration:'none', color:'white'}}><Link to ="/detalle">Detalle</Link></a>
-        </div>
-      </div><div className="card" style={{ width: '18rem', display:'flex' }}>
-        <img src={civic} className="card-img-top" style={{ width: '18rem' }} alt="" />
-        <div className="card-body">
-          <h5 className="card-title">Honda Civic Type R</h5>
-          <p className="card-text"></p>
-          <a href="" className="btn btn-danger">Detalle</a>
-        </div>
-      </div></>
+  })
+  return (
+    <ItemListContainer/>
+    
   )
 }
 
 export default ItemListContainer
- 

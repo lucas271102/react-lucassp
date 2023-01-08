@@ -1,32 +1,50 @@
-import {BrowserRouter, Routes, Route}from 'react-router-dom';
-import './App.css';
-import CarritoPage from './components/CarritoPage/CarritoPage';
-import ItemDetail from './components/ItemDetail/ItemDetail';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from './components/NavBar/NavBar';
-import Deportivos from './components/pages/Deportivos';
-import SuperDeportivos from './components/pages/SuperDeportivos';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Navbar from "..//src/components/Navbar/Navbar";
+import Footer from "../src/components/Footer/Footer";
+import Home from "..//src/components/pages/Home/Home";
+import Cart from "..//src/components/pages/Cart/Cart"
+import ItemDetailPage from "..//src/components/pages/ItemDetailPage/ItemDetailPage"
+import Categories from "..//src/components/pages/Categories/Categories"
+import Form from "..//src/components/pages/Form/Form"
+
+import CartContext from "..//src/components/Context/CartContext"
 
 function App() {
+  const [cart, setCart] = useState([]);
+  const [qnt, setQnt] = useState(0);
+
+  const greeting = "Luxury Motors";
+
   return (
-    <BrowserRouter>
-     <>
-      <NavBar/>
-      
-      
-      <Routes>
-      <Route path='/'element={<ItemListContainer label="Detalles" />}/>
-        <Route path="/cart" element={<CarritoPage/>}/>
-        <Route path="/home" element={<ItemListContainer/>}/>
-        <Route path="/detalle"element={<ItemDetailContainer/>}/>
-        <Route path="/deportivos" element={<Deportivos/>}/>
-        <Route path="/superdeportivos"element={<SuperDeportivos/>}/>
-      </Routes>
-    </>
-  
-    </BrowserRouter>
-   
+    <div>
+      <CartContext.Provider value={{ cart, setCart, qnt, setQnt }}>
+        <Router>
+          
+            <Navbar />
+            
+              <Route exact path="/">
+                <Home greeting={greeting} />
+              </Route>
+              <Route path="/form">
+                <Form />
+              </Route>
+              <Route path="/item/:id">
+                <ItemDetailPage />
+              </Route>
+              <Route path="/categories/:categoryId">
+                <Categories />
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
+            
+            <Footer />
+          
+        </Router>
+      </CartContext.Provider>
+    </div>
   );
 }
 
